@@ -9,10 +9,10 @@ void rev_string(char *s)
 int len = 0, fcount = 0;
 char mix;
 
-while(s[fcount++])
+while (s[fcount++])
 len++;
 
-for (fcount = len - 1; fcount >= len / 2; fcount --)
+for (fcount = len - 1; fcount >= len / 2; fcount--)
 {
 mix = s[fcount];
 s[fcount] = s[len - fcount - 1];
