@@ -14,3 +14,4 @@ sum++;
 c1 = s[i++];
 }
 return (sum);
+}
