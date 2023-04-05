@@ -10,10 +10,10 @@
 char *_strncat(char *dest, char *src, int n)
 {
 int i, concat;
-for (i=0; dest[i] != '\0';i++)
+for (i = 0; dest[i] != '\0'; i++)
 {
 }
-for (concat=0; concat < n; concat++)
+for (concat = 0; concat < n; concat++)
 {
 dest[i + concat] = src[concat];
 if (src[concat] == '\0')
