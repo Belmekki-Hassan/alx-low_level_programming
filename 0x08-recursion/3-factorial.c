@@ -17,6 +17,6 @@ return (-1);
 else
 {
 n *= factorial(n - 1);
-return (n)
+return (n);
 }
 }
