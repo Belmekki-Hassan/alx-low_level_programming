@@ -14,6 +14,7 @@ else
 {
 return (1 * _strlen_rec(st + 1));
 }
+}
 /**
  * check_pal - checks if string is palindrome
  * @li: left hand index
@@ -34,6 +35,7 @@ return (0);
 else
 {
 return (check_pal(li + 1, ri - 1, pp));
+}
 }
 /**
  * is_palindrome - evaluate string
