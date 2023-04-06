@@ -1,4 +1,4 @@
-#incude "main.h"
+#include "main.h"
 /**
  * is_prime_number - evaulate a number
  * @n : the number
