@@ -2,7 +2,7 @@
 /**
  * is_prime_number - evaulate a number
  * @n : the number
- * Return 1 is primer, otherwise 0
+ * Return: 1 is primer, otherwise 0
  */
 int is_prime_number(int n)
 {
