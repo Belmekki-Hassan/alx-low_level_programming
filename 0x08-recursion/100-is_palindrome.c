@@ -37,7 +37,8 @@ return (check_pal(li + 1, ri - 1, pp));
 }
 /**
  * is_palindrome - evaluate string
- * Return 1 if true, else 0
+ * @s: the string
+ * Return: 1 if true, else 0
  */
 int is_palindrome(char *s)
 {
