@@ -19,9 +19,7 @@ else
 {
 j = 1;
 for (i = 0; i < 3; i++)
-{
 j *= atoi(argv[i]);
-}
 printf("%d\n", j);
 }
 return (0);
