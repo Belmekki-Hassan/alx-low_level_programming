@@ -7,7 +7,7 @@
 * Return: if success display duplicated string else display null
 */
 
-char *_strdup (char *str)
+char *_strdup(char *str)
 {
 char *strnv = NULL;
 unsigned int i;
