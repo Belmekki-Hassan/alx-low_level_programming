@@ -57,7 +57,7 @@ free(r);
 printf("Error\n"), exit(98);
 }
 b = s2[len2] - '0';
-c += r[len1 + len2 + 1] + (a * b);
+c += r[len1 + len2 + 1] + (a *b);
 r[len1 + len2 + 1] = c % 10;
 c /= 10;
 }
