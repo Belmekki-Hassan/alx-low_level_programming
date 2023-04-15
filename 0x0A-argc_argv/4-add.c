@@ -1,40 +1,56 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 /**
-* main - Program gets all int and display the sum
-* @argc: nbr of cli args
-* @argv: List name
-* Return: if a !integer is  in the args passed display 1 else 0
-*/
-int main(int argc, char *argv[])
+ * check_num - check - string there are digit
+ * @str: array str
+ *
+ * Return: Always 0 (Success)
+ */
+int check_num(char *str)
 {
-int i, j, length, sum;
-char *tr;
-if (argc < 2)
+/*Declaring variables*/
+unsigned int count;
+count = 0;
+while (count < strlen(str)) /*count string*/
 {
-printf("0\n");
+if (!isdigit(str[count])) /*check if str there are digit*/
+{
+return (0);
 }
-else
-{
-sum = 0;
-for (i = 1; i < argc; i++)
-{
-tr = argv[i];
-length = strlen(tr);
-for (j = 0; j < length; j++)
-{
-if (isdigit(*(tr + j)) == 0)
-{
-printf("The args is not a number(integer) \n");
+count++;
+}
 return (1);
 }
+/**
+ * main - Print the name of the program
+ * @argc: Count arguments
+ * @argv: Arguments
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char *argv[])
+{
+/*Declaring variables*/
+int count;
+int str_to_int;
+int sum = 0;
+count = 1;
+while (count < argc) /*Goes through the whole array*/
+{
+if (check_num(argv[count]))
+{
+str_to_int = atoi(argv[count]); /*ATOI --> convert string to int*/
+sum += str_to_int;
 }
-sum += atoi(argv[i]);
+/*Condition if one of the number contains symbols that are not digits*/
+else
+{
+printf("Error\n");
+return (1);
 }
-printf("%d\n", sum);
+count++;
 }
+printf("%d\n", sum); /*print sum*/
 return (0);
 }
