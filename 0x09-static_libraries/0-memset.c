@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * _memset - filling a block of memory with a value
- * @s: star of address in memeory 
- * @o: the specific value
+ * @s: star of address in memeory
+ * @b: the specific value
  * @n: nbr of bytes to change
  * Return: the new value with n bytes
  */
