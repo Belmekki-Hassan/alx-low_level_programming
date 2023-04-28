@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 #include <stdio.h>
 /**
  * print_list - check the code
