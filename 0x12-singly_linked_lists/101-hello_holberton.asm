@@ -1,17 +1,18 @@
 section .data
-    msg db 'Hello, Holberton', 0xa, 0
+    hello db 'Hello, Holberton', 0Ah
 
 section .text
     global _start
 
 _start:
-    ; prepare the arguments for printf
-    push dword 0      ; null terminator
-    push dword msg    ; pointer to the message
-    call printf       ; call the printf function
+    ; write "Hello, Holberton" to stdout
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, hello
+    mov edx, 16
+    int 0x80
 
-    ; exit the program
-    xor eax, eax      ; return value 0
-    mov ebx, eax      ; status code 0
-    mov eax, 1        ; system call number for exit
-    int 0x80          ; invoke the system call
+    ; exit
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80
