@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * binary_to_unit - function that convert binary to unit
+ * binary_to_uint - function that convert binary to unit
  * @b: binary variable
  * Return: 0
  */
