@@ -4,22 +4,17 @@
  * @b: binary variable
  * Return: 0
  */
-unsigned int binary_to_unit(const char *b)
+unsigned int binary_to_uint(const char *b)
 {
-unsigned int unit = 0;
-int i = 0, length = 0;
+int i;
+unsigned int dec_val = 0;
 if (!b)
-return (0);
-while (b[length + 1])
+return (0);/** return 0 */
+for (i = 0; b[i]; i++)
 {
-if (b[length] != '0' && b[length] != '1')
+if (b[i] < '0' || b[i] > '1')
 return (0);
-length++;
+dec_val = 2 * dec_val + (b[i] - '0');
 }
-for (i = 0; i <= length; i++)
-{
-if (b[i] == '1')
-unit = unit + (1 << (length - 1));
-}
-return (unit);
+return (dec_val);
 }
