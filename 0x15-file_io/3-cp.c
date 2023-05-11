@@ -1,35 +1,72 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
- *  copy_text_file - a function to copies on file to another one
- *  @f1: opened file to copy
- *  @f2: opent the new file
- *  @file1: name of the first file
- *  @file2: name of the second file
- */
-void copy_text_file(int f1, int f2, char *file1, char *file2)
+* main - function that convert
+* @ac: a
+* @av: a
+* Return: Always 0.
+*/
+int main(int ac, char **av)
 {
-ssize_t cRead = 1, cWrite = 1;
-char buffer[1024];
-while (cRead)
+int fd;
+char *buffer;
+ssize_t num_bytes;
+int close_ret = 0;
+int len = 0;
+size_t letters = 1024;
+if (ac != 3)
 {
-if (cRead == -1)
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
+}
+if (!av[1])
+return (0);
+fd = open(av[1], O_RDONLY);
+if (fd == -1)
 {
-dprintf(STDERR_FILENO, "Error: Cant't read from the file %s \n", file1);
-close(f1);
-close(f2);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
-if (!cRead)
-break;
-cWrite = write(f2, buffer, cRead);
-if (cWrite == -1 || cWrite != cRead)
+buffer = malloc(letters * sizeof(char));
+if (!buffer)
+return (0);
+num_bytes = read(fd, buffer, letters);
+if (num_bytes == -1)
 {
-dprintf(STDERR_FILENO, "Error: Cant't write to %s \n", file2);
-close(f1);
-close(f2);
+free(buffer);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 exit(98);
 }
+close_ret = close(fd);
+if (close_ret == -1)
+{
+free(buffer);
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+exit(100);
 }
+if (!av[2])
+return (-1);
+fd = open(av[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+if (fd == -1)
+{
+free(buffer);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+exit(99);
+}
+while (buffer && buffer[len])
+len++;
+write(fd, buffer, len);
+if (fd == -1)
+{
+free(buffer);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+exit(99);
+}
+free(buffer);
+close_ret = close(fd);
+if (close_ret == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+exit(100);
+}
+return (1);
 }
