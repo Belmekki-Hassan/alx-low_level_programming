@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- *   * main - copy a file into another file (cp command)
- *     * @argc: number of arguments
- *       * @argv: arguments
- *         * Return: 0 if succesfull
- *           */
+ * main - copy a file into another file (cp command)
+ * @argc: number of arguments
+ * @argv: arguments
+ * Return: 0 if succesfull
+ */
 int main(int argc, char **argv)
 {
 int f1, f2;
