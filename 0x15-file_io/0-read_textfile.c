@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * read_textfile - function for task 0
- * #filename: the file to read
- * #letters: counter of letters to read and display
+ * @filename: the file to read
+ * @letters: counter of letters to read and display
  * Return: counter of letters if success else 0
  */
 ssize_t read_textfile(const char *filename, size_t letters)
